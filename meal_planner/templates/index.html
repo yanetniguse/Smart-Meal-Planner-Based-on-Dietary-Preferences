@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smart Meal Planner</title>
+  </head>
+  <body>
+    <h2>Choose Your Dietary Preferences</h2>
+    <form method="POST">
+      <label>Diet:</label>
+      <select name="diet">
+	<option value="vegetarian">Vegetarian</option>
+	<option value="non-vegetarian">Non-Vegetarian</option>
+      </select><br><br>
+
+      <label>Preferences:</label><br>
+      <input type="checkbox" name="preferences" value="high protein"> High Protein<br>
+      <input type="checkbox" name="preferences" value="low carb"> Low Carb<br>
+      <input type="checkbox" name="preferences" value="gluten-free"> Gluten-Free<br><br>
+      <button type="submit">Get Meal Plan</button>
+    </form>
+  </body>
+  </html>

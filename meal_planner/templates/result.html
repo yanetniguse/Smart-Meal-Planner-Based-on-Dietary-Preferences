@@ -1,0 +1,20 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meal Suggestions</title>
+  </head>
+  <body>
+    <h2>Suggested Meals:</h2>
+    {% if meals %}
+    <ul>
+      {% for meal in meals %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No meals found matching your preferences.</p>
+    {% endif %}
+    <a href="/">Try Again</a>
+  </body>
+  </html>
