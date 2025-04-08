@@ -1,20 +1,69 @@
-<!-- templates/result.html -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meal Suggestions</title>
+    <title>Smart Meal Planner - Results</title>
+    <style>
+      body {
+          background-color: #111;
+          color: #eee;
+          font-family: Arial, sans-serif;
+          padding: 30px;
+      }
+      h2 {
+          color: #c9a0dc;
+      }
+      h3 {
+          margin-top: 30px;
+          color: #87ceeb;
+      }
+      ul {
+          list-style-type: square;
+          padding-left: 20px;
+      }
+      a {
+          color: #c9a0dc;
+          text-decoration: none;
+      }
+      a:hover {
+          text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h2>Suggested Meals:</h2>
-    {% if meals %}
+
+    {% if breakfast or lunch or dinner %}
+    {% if breakfast %}
+    <h3>Breakfast</h3>
     <ul>
-      {% for meal in meals %}
+      {% for meal in breakfast %}
       <li>{{ meal }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
+
+    {% if lunch %}
+    <h3>Lunch</h3>
+    <ul>
+      {% for meal in lunch %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if dinner %}
+    <h3>Dinner</h3>
+    <ul>
+      {% for meal in dinner %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     {% else %}
     <p>No meals found matching your preferences.</p>
     {% endif %}
+
+    <br>
     <a href="/">Try Again</a>
   </body>
-  </html>
+</html>

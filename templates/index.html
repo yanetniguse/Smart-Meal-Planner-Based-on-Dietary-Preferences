@@ -1,23 +1,52 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Meal Planner</title>
   </head>
   <body>
-    <h2>Choose Your Dietary Preferences</h2>
+    <h1>Smart Meal Planner</h1>
     <form method="POST">
-      <label>Diet:</label>
-      <select name="diet">
+      <label for="diet">Select Your Dietary Preference:</label>
+      <select id="diet" name="diet">
 	<option value="vegetarian">Vegetarian</option>
 	<option value="non-vegetarian">Non-Vegetarian</option>
-      </select><br><br>
+      </select>
 
-      <label>Preferences:</label><br>
+      <br><br>
+
+      <label>Select Preferences:</label><br>
       <input type="checkbox" name="preferences" value="high protein"> High Protein<br>
       <input type="checkbox" name="preferences" value="low carb"> Low Carb<br>
-      <input type="checkbox" name="preferences" value="gluten-free"> Gluten-Free<br><br>
-      <button type="submit">Get Meal Plan</button>
+      <input type="checkbox" name="preferences" value="gluten-free"> Gluten-Free<br>
+      
+      <br>
+      <button type="submit">Generate Meal Plan</button>
     </form>
+
+    {% if breakfast %}
+    <h2>Your Personalized Meal Plan:</h2>
+    <h3>Breakfast:</h3>
+    <ul>
+      {% for meal in breakfast %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Lunch:</h3>
+    <ul>
+      {% for meal in lunch %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Dinner:</h3>
+    <ul>
+      {% for meal in dinner %}
+      <li>{{ meal }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </body>
   </html>
