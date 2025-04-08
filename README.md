@@ -66,10 +66,10 @@ The `templates` directory contains the HTML files used by Flask to render pages.
 5. Create a new Pull Request.
 
 ## Authors
-- James Mang'ana - [@jayotieno]
-- Yanet Niguse - [@yanetniguse]
-- Dhruv Pokhariyal - [@POlcahontas]
-- Kwame Lucheveli - [@luche3002]
+- [James Mang'ana] - @jayotieno
+- [Yanet Niguse] - @yanetniguse
+- [Dhruv Pokhariyal] - @POlcahontas
+- [Kwame Lucheveli] - @luche3002
 
 ## Instructor
 Prof. Austin Odera
