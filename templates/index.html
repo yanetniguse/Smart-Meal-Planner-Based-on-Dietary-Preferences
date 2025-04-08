@@ -2,51 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Meal Planner</title>
+    <style>
+      body {
+          background-color: #0f0f0f;
+          color: #f1f1f1;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 40px 0;
+          display: flex;
+          justify-content: center;
+      }
+
+      .container {
+          background-color: #1c1c1c;
+          border-radius: 16px;
+          padding: 40px;
+          width: 90%;
+          max-width: 600px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+          text-align: center;
+          color: #c78bfa;
+          margin-bottom: 30px;
+      }
+
+      label {
+          display: block;
+          margin: 16px 0 6px;
+          font-weight: bold;
+      }
+
+      select,
+      input[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          border-radius: 8px;
+          border: none;
+          margin-bottom: 16px;
+          font-size: 16px;
+      }
+
+      select {
+          background-color: #2e2e2e;
+          color: #f1f1f1;
+      }
+
+      select[multiple] {
+          height: 120px;
+      }
+
+      input[type="submit"] {
+          background-color: #c78bfa;
+          color: #111;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+          background-color: #9f6fe8;
+      }
+
+      .footer {
+          text-align: center;
+          margin-top: 20px;
+          font-size: 0.9em;
+          color: #aaa;
+      }
+    </style>
   </head>
   <body>
-    <h1>Smart Meal Planner</h1>
-    <form method="POST">
-      <label for="diet">Select Your Dietary Preference:</label>
-      <select id="diet" name="diet">
-	<option value="vegetarian">Vegetarian</option>
-	<option value="non-vegetarian">Non-Vegetarian</option>
-      </select>
+    <div class="container">
+      <h1>🥗 Smart Meal Planner</h1>
+      <form method="POST" action="/">
+	<label for="diet">Select Your Dietary Preference:</label>
+	<select name="diet" id="diet" required>
+	  <option value="" disabled selected>Select an option</option>
+	  <option value="vegetarian">Vegetarian</option>
+	  <option value="non-vegetarian">Non-Vegetarian</option>
+	</select>
 
-      <br><br>
+	<label for="preferences">Select Preferences:</label>
+	<select name="preferences" id="preferences" multiple required>
+	  <option value="high protein">High Protein</option>
+	  <option value="low carb">Low Carb</option>
+	  <option value="gluten-free">Gluten-Free</option>
+	</select>
 
-      <label>Select Preferences:</label><br>
-      <input type="checkbox" name="preferences" value="high protein"> High Protein<br>
-      <input type="checkbox" name="preferences" value="low carb"> Low Carb<br>
-      <input type="checkbox" name="preferences" value="gluten-free"> Gluten-Free<br>
-      
-      <br>
-      <button type="submit">Generate Meal Plan</button>
-    </form>
+	<input type="submit" value="Generate Meal Plan">
+      </form>
 
-    {% if breakfast %}
-    <h2>Your Personalized Meal Plan:</h2>
-    <h3>Breakfast:</h3>
-    <ul>
-      {% for meal in breakfast %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-
-    <h3>Lunch:</h3>
-    <ul>
-      {% for meal in lunch %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-
-    <h3>Dinner:</h3>
-    <ul>
-      {% for meal in dinner %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      <div class="footer">
+	Powered by Experta 🧠 | Simple Rule-Based AI
+      </div>
+    </div>
   </body>
-  </html>
+</html>

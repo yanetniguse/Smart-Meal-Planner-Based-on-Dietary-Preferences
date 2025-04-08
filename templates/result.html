@@ -1,69 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>Smart Meal Planner - Results</title>
     <style>
       body {
-          background-color: #111;
-          color: #eee;
-          font-family: Arial, sans-serif;
-          padding: 30px;
+          background-color: #0f0f0f;
+          color: #f1f1f1;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 40px 0;
+          display: flex;
+          justify-content: center;
       }
+
+      .container {
+          background-color: #1c1c1c;
+          border-radius: 16px;
+          padding: 40px;
+          width: 80%;
+          max-width: 800px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      }
+
       h2 {
-          color: #c9a0dc;
+          text-align: center;
+          color: #c78bfa;
+          margin-bottom: 30px;
       }
+
       h3 {
-          margin-top: 30px;
-          color: #87ceeb;
+          color: #7ee787;
+          border-bottom: 1px solid #333;
+          padding-bottom: 5px;
       }
+
       ul {
-          list-style-type: square;
           padding-left: 20px;
+          margin-top: 10px;
       }
-      a {
-          color: #c9a0dc;
+
+      li {
+          margin-bottom: 8px;
+          transition: transform 0.2s ease;
+      }
+
+      li:hover {
+          transform: translateX(5px);
+          color: #87cefa;
+      }
+
+      .button-link {
+          display: inline-block;
+          margin-top: 30px;
           text-decoration: none;
+          padding: 12px 24px;
+          background-color: #c78bfa;
+          color: #111;
+          border-radius: 8px;
+          font-weight: bold;
+          text-align: center;
+          transition: background-color 0.3s ease;
       }
-      a:hover {
-          text-decoration: underline;
+
+      .button-link:hover {
+          background-color: #9f6fe8;
+      }
+
+      .section {
+          margin-bottom: 30px;
+      }
+
+      .no-meals {
+          text-align: center;
+          color: #ff7675;
+          font-style: italic;
+          margin-top: 20px;
       }
     </style>
   </head>
   <body>
-    <h2>Suggested Meals:</h2>
+    <div class="container">
+      <h2>🍽️ Suggested Meals</h2>
 
-    {% if breakfast or lunch or dinner %}
-    {% if breakfast %}
-    <h3>Breakfast</h3>
-    <ul>
-      {% for meal in breakfast %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      {% if breakfast or lunch or dinner %}
+      {% if breakfast %}
+      <div class="section">
+	<h3>🥣 Breakfast</h3>
+	<ul>
+	  {% for meal in breakfast %}
+	  <li>{{ meal }}</li>
+	  {% endfor %}
+	</ul>
+      </div>
+      {% endif %}
 
-    {% if lunch %}
-    <h3>Lunch</h3>
-    <ul>
-      {% for meal in lunch %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      {% if lunch %}
+      <div class="section">
+	<h3>🥗 Lunch</h3>
+	<ul>
+	  {% for meal in lunch %}
+	  <li>{{ meal }}</li>
+	  {% endfor %}
+	</ul>
+      </div>
+      {% endif %}
 
-    {% if dinner %}
-    <h3>Dinner</h3>
-    <ul>
-      {% for meal in dinner %}
-      <li>{{ meal }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% else %}
-    <p>No meals found matching your preferences.</p>
-    {% endif %}
+      {% if dinner %}
+      <div class="section">
+	<h3>🍛 Dinner</h3>
+	<ul>
+	  {% for meal in dinner %}
+	  <li>{{ meal }}</li>
+	  {% endfor %}
+	</ul>
+      </div>
+      {% endif %}
+      {% else %}
+      <p class="no-meals">No meals found matching your preferences.</p>
+      {% endif %}
 
-    <br>
-    <a href="/">Try Again</a>
+      <div style="text-align:center;">
+	<a class="button-link" href="/">🔄 Try Again</a>
+      </div>
+    </div>
   </body>
 </html>
